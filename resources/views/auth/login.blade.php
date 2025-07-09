@@ -1,52 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Login - Roti Sari</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="{{ url('/') }}">Roti Sari</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<!-- Login Form -->
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card shadow-sm p-4" style="width: 100%; max-width: 400px;">
+    <h3 class="text-center mb-4">Login</h3>
 
-    <div class="collapse navbar-collapse" id="navbarBasic">
-      <ul class="navbar-nav me-auto">
-        <!-- Tambahkan menu di sini -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">Menu 1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Menu 2</a>
-        </li>
-      </ul>
+    @if(session('success'))
+      <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
 
-      <!-- Kanan navbar (opsional) -->
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    @if(session('error'))
+      <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
 
-    <h2>Login</h2>
-    @if(session('success')) <p>{{ session('success') }}</p> @endif
+    @if($errors->any())
+      <div class="alert alert-danger">
+        <ul class="mb-0">
+          @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+
     <form action="{{ route('login') }}" method="POST">
-        @csrf
-        <input type="email" name="email" placeholder="Email"><br>
-        <input type="password" name="password" placeholder="Password"><br>
-        <button type="submit">Login</button>
-    </form>
-    <a href="{{ route('register') }}">Belum punya akun?</a>
+      @csrf
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" id="email" placeholder="Masukkan email" required>
+      </div>
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Masukkan password" required>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </form>
+
+    <<div class="mt-3 text-center">
+  <span class="text-dark">Belum punya akun? </span>
+  <a href="{{ route('register') }}" class="text-primary text-decoration-none">Register</a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
