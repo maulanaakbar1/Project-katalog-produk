@@ -31,16 +31,21 @@
         <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
         </li>
+        
       </ul>
     </div>
   </div>
 </nav>
 
-  <div class="container mt-5 text-center">
-    <h1>Selamat Datang!</h1>
-    <p>Ini adalah halaman landing kosong siap kamu modifikasi.</p>
-  </div>
+<div class="container mt-5 text-center">
+<h1>Selamat Datang!</h1>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <img src="https://png.pngtree.com/background/20230813/original/pngtree-bread-with-wheat-and-ears-rye-bread-surface-seed-photo-picture-image_4624039.jpg" class="img-fluid" alt="Roti dan Gandum" />
+  
+  <p>Ini adalah halaman landing kosong siap kamu modifikasi.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+  
